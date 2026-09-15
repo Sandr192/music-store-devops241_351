@@ -16,7 +16,7 @@
 - PostgreSQL (БД)
 - SQLAlchemy + Alembic (ORM и миграции)
 - Jinja2 (шаблоны)
-- Docker + Docker Compose (инфраструктура)
+- Docker + Docker Compose (инфраструктура) 
 
 ## 📂 Структура проекта
 music-store-devops241_351/
@@ -49,4 +49,4 @@ uvicorn app.main:app --reload
 🔗 Полезные ссылки
 Swagger-документация API: http://localhost:8000/docs
 
-Healthcheck: http://localhost:8000/health
+Healthcheck: http://localhost:8000/health 
