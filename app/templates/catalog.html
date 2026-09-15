@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Каталог дисков</h2>
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Музыкант</th>
+            <th>Цена</th>
+            <th>Остаток</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Здесь будут данные из БД, пока заглушки -->
+        {% for album in albums %}
+        <tr>
+            <td>{{ album.title }}</td>
+            <td>{{ album.musician }}</td>
+            <td>{{ album.price }} руб.</td>
+            <td>{{ album.stock }}</td>
+            <td><button>Купить</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

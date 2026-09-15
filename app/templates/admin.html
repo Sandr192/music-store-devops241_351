@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Панель администратора</h2>
+<h3>Добавить новый диск</h3>
+<form method="post" action="/admin/album">
+    <label>Название альбома: <input type="text" name="title" required></label><br><br>
+    <label>Музыкант: <input type="text" name="musician" required></label><br><br>
+    <label>Цена: <input type="number" name="price" step="0.01" required></label><br><br>
+    <label>Остаток: <input type="number" name="stock" required></label><br><br>
+    <button type="submit">Добавить</button>
+</form>
+{% endblock %}
