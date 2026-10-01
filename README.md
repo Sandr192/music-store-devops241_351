@@ -6,7 +6,7 @@
 Веб-приложение для учета музыкальных дисков, управления каталогом исполнителей, оформления продаж и отслеживания остатков на складе.
 
 ## 👥 Команда
-- Участник 1 — Backend/DB (модели, PostgreSQL, миграции)
+- Участник 1 — Backend/DB (модели, SQLiteStudio, миграции)
 - Участник 2 — API/Logic (FastAPI, бизнес-логика, авторизация)
 - Участник 3 — Frontend/Docs/Git (шаблоны, документация, CI/CD)
 
@@ -45,8 +45,23 @@ bash
 uvicorn app.main:app --reload
 5. Открыть в браузере: http://localhost:8000
 
-📊 Схема данных
-(Будет добавлена после проектирования БД Участником 1)
+## 📊 Схема данных
+
+### Таблицы
+- **musicians** — музыканты (id, name, country, created_at)
+- **genres** — жанры (id, name)
+- **albums** — альбомы (id, title, release_year, price, stock_quantity, musician_id, created_at)
+- **album_genres** — связь альбомов и жанров (album_id, genre_id)
+- **sales** — продажи (id, album_id, quantity, total_price, created_at)
+
+### Связи
+- `albums.musician_id` → `musicians.id` (многие-к-одному)
+- `album_genres` — многие-ко-многим между `albums` и `genres`
+- `sales.album_id` → `albums.id` (многие-к-одному)
+
+### Бизнес-правила
+- Цена и остаток альбома не могут быть отрицательными.
+- Количество продажи > 0, итоговая цена >= 0.
 
 🔗 Полезные ссылки
 Swagger-документация API: http://localhost:8000/docs
